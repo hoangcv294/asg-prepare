@@ -19,13 +19,13 @@ EOF
 }
 
 #######################-Add S3 Permission-#######################
-resource "aws_iam_role_policy_attachment" "cloud_storage_S3_policy" {
+resource "aws_iam_role_policy_attachment" "cloud_storage_CW_policy" {
   role       = aws_iam_role.cloud_storage_iam_role_1.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchFullAccess"
 }
 
 #######################--Create IAM Instance Profile-#######################-
 resource "aws_iam_instance_profile" "e_instance_profile_1" {
-  name = "cloud_storage-SSMInstanceProfile1"
+  name = "cloud_storage-InstanceProfile1"
   role = aws_iam_role.cloud_storage_iam_role_1.name
 }

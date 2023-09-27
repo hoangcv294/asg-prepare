@@ -22,11 +22,11 @@ resource "aws_lb_target_group" "cloud_storage_tg" {
 }
 
 #######################-Create Target Group Instance-#######################
-resource "aws_lb_target_group_attachment" "cloud_storage_tg" {
-  target_group_arn = aws_lb_target_group.cloud_storage_tg.arn
-  target_id        = aws_instance.apache_server.id
-  port             = 80
-}
+# resource "aws_lb_target_group_attachment" "cloud_storage_tg" {
+#   target_group_arn = aws_lb_target_group.cloud_storage_tg.arn
+#   target_id        = aws_launch_configuration.lc_app.id
+#   port             = 80
+# }
 
 #######################-Create ALB-#######################
 resource "aws_lb" "cloud_storage_lb" {

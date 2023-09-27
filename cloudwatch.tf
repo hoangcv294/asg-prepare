@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "high_ram_alarm" {
   alarm_actions       = [aws_autoscaling_policy.scale_up_policy.arn]
 
   dimensions = {
-    InstanceId = aws_instance.apache_server.id
+    InstanceId = aws_launch_configuration.lc_app.id
   }
 }
 
@@ -28,6 +28,6 @@ resource "aws_cloudwatch_metric_alarm" "low_ram_alarm" {
   alarm_actions       = [aws_autoscaling_policy.scale_down_policy.arn]
 
   dimensions = {
-    InstanceId = aws_instance.apache_server.id
+    InstanceId = aws_launch_configuration.lc_app.id
   }
 }
